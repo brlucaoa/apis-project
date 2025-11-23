@@ -6,32 +6,32 @@ export declare class AppService {
     private readonly logger;
     constructor(prisma: PrismaService);
     updatingOperador(id: number, data: Partial<CreateOperadorDto>): Promise<{
-        id: number;
+        name: string;
         email: string;
         cpf: string;
-        name: string;
         patente: import("@prisma/client").$Enums.Patente;
         status: import("@prisma/client").$Enums.StatusOperador;
+        id: number;
         createdAt: Date;
     }>;
     updatingMissao(id: number, dto: UpdateMissaoDto): Promise<{
         message: string;
         updated: {
             operadores: {
-                id: number;
+                name: string;
                 email: string;
                 cpf: string;
-                name: string;
                 patente: import("@prisma/client").$Enums.Patente;
                 status: import("@prisma/client").$Enums.StatusOperador;
+                id: number;
                 createdAt: Date;
             }[];
         } & {
-            id: number;
             status: import("@prisma/client").$Enums.StatusMissao;
-            createdAt: Date;
             titulo: string;
             descricao: string | null;
+            id: number;
+            createdAt: Date;
         };
     }>;
 }

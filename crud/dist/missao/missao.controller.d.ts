@@ -11,15 +11,15 @@ export declare class MissaoController {
             cpf: string;
             patente: import("@prisma/client").$Enums.Patente;
             status: import("@prisma/client").$Enums.StatusOperador;
-            createdAt: Date;
             id: number;
+            createdAt: Date;
         }[];
     } & {
         status: import("@prisma/client").$Enums.StatusMissao;
-        createdAt: Date;
-        id: number;
         titulo: string;
         descricao: string | null;
+        id: number;
+        createdAt: Date;
     }>;
     addOperador(id: number, operadorId: number): Promise<{
         operadores: {
@@ -28,15 +28,15 @@ export declare class MissaoController {
             cpf: string;
             patente: import("@prisma/client").$Enums.Patente;
             status: import("@prisma/client").$Enums.StatusOperador;
-            createdAt: Date;
             id: number;
+            createdAt: Date;
         }[];
     } & {
         status: import("@prisma/client").$Enums.StatusMissao;
-        createdAt: Date;
-        id: number;
         titulo: string;
         descricao: string | null;
+        id: number;
+        createdAt: Date;
     }>;
     findAll(): Promise<({
         operadores: {
@@ -45,15 +45,15 @@ export declare class MissaoController {
             cpf: string;
             patente: import("@prisma/client").$Enums.Patente;
             status: import("@prisma/client").$Enums.StatusOperador;
-            createdAt: Date;
             id: number;
+            createdAt: Date;
         }[];
     } & {
         status: import("@prisma/client").$Enums.StatusMissao;
-        createdAt: Date;
-        id: number;
         titulo: string;
         descricao: string | null;
+        id: number;
+        createdAt: Date;
     })[]>;
     findOne(id: number): Promise<{
         operadores: {
@@ -62,15 +62,15 @@ export declare class MissaoController {
             cpf: string;
             patente: import("@prisma/client").$Enums.Patente;
             status: import("@prisma/client").$Enums.StatusOperador;
-            createdAt: Date;
             id: number;
+            createdAt: Date;
         }[];
     } & {
         status: import("@prisma/client").$Enums.StatusMissao;
-        createdAt: Date;
-        id: number;
         titulo: string;
         descricao: string | null;
+        id: number;
+        createdAt: Date;
     }>;
     update(id: number, dto: UpdateMissaoDto): Promise<({
         operadores: {
@@ -79,21 +79,21 @@ export declare class MissaoController {
             cpf: string;
             patente: import("@prisma/client").$Enums.Patente;
             status: import("@prisma/client").$Enums.StatusOperador;
-            createdAt: Date;
             id: number;
+            createdAt: Date;
         }[];
     } & {
         status: import("@prisma/client").$Enums.StatusMissao;
-        createdAt: Date;
-        id: number;
         titulo: string;
         descricao: string | null;
+        id: number;
+        createdAt: Date;
     }) | undefined>;
     remove(id: number): Promise<{
         status: import("@prisma/client").$Enums.StatusMissao;
-        createdAt: Date;
-        id: number;
         titulo: string;
         descricao: string | null;
+        id: number;
+        createdAt: Date;
     }>;
 }

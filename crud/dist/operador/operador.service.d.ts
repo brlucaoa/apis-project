@@ -10,16 +10,16 @@ export declare class OperadorService {
         cpf: string;
         patente: import("@prisma/client").$Enums.Patente;
         status: import("@prisma/client").$Enums.StatusOperador;
-        createdAt: Date;
         id: number;
+        createdAt: Date;
     }>;
     findAll(): Prisma.PrismaPromise<({
         missoes: {
             status: import("@prisma/client").$Enums.StatusMissao;
-            createdAt: Date;
-            id: number;
             titulo: string;
             descricao: string | null;
+            id: number;
+            createdAt: Date;
         }[];
     } & {
         name: string;
@@ -27,16 +27,16 @@ export declare class OperadorService {
         cpf: string;
         patente: import("@prisma/client").$Enums.Patente;
         status: import("@prisma/client").$Enums.StatusOperador;
-        createdAt: Date;
         id: number;
+        createdAt: Date;
     })[]>;
     findOne(id: number): Promise<{
         missoes: {
             status: import("@prisma/client").$Enums.StatusMissao;
-            createdAt: Date;
-            id: number;
             titulo: string;
             descricao: string | null;
+            id: number;
+            createdAt: Date;
         }[];
     } & {
         name: string;
@@ -44,8 +44,8 @@ export declare class OperadorService {
         cpf: string;
         patente: import("@prisma/client").$Enums.Patente;
         status: import("@prisma/client").$Enums.StatusOperador;
-        createdAt: Date;
         id: number;
+        createdAt: Date;
     }>;
     update(id: number, data: Partial<CreateOperadorDto>): Prisma.Prisma__OperadorClient<{
         name: string;
@@ -53,8 +53,8 @@ export declare class OperadorService {
         cpf: string;
         patente: import("@prisma/client").$Enums.Patente;
         status: import("@prisma/client").$Enums.StatusOperador;
-        createdAt: Date;
         id: number;
+        createdAt: Date;
     }, never, import("@prisma/client/runtime/library").DefaultArgs, Prisma.PrismaClientOptions>;
     remove(id: number): Promise<{
         name: string;
@@ -62,7 +62,7 @@ export declare class OperadorService {
         cpf: string;
         patente: import("@prisma/client").$Enums.Patente;
         status: import("@prisma/client").$Enums.StatusOperador;
-        createdAt: Date;
         id: number;
+        createdAt: Date;
     }>;
 }
