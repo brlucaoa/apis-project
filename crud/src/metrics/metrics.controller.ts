@@ -1,4 +1,13 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, Header } from '@nestjs/common';
+import { MetricsService } from '../metrics/metrics.service';
 
 @Controller('metrics')
-export class MetricsController {}
+export class MetricsController {
+  constructor(private readonly metricsService: MetricsService) {}
+
+  @Get()
+  @Header('Content-Type', 'text/plain')
+  async getMetrics() {
+    return this.metricsService.getMetrics();
+  }
+}
