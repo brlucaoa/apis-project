@@ -30,7 +30,7 @@ async function bootstrap() {
 
   await app.startAllMicroservices();
 
-  const port = process.env.PORT || 3001;
+  const port = process.env.PORT || 3000;
   console.log(`Updates rodando na porta ${port}`);
   console.log(`Escutando eventos na fila campo_update`);
 }
