@@ -2,9 +2,9 @@ version: "3.9"
 
 services:
   api:
-    build: ./api
-    container_name: api
-    env_file: ./api/.env
+    build: ./crud
+    container_name: crud
+    env_file: ./crud/.env
     ports:
       - "3000:3000"
     depends_on:
@@ -13,9 +13,9 @@ services:
       - app-network
 
   publisher:
-    build: ./publisher
-    container_name: publisher
-    env_file: ./publisher/.env
+    build: ./campo-update
+    container_name: campo-updater
+    env_file: ./campo-update/.env
     ports:
       - "3002:3002"
     networks:
