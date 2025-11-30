@@ -1,14 +1,17 @@
-FROM node:18-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
+FROM node:latest
 
-FROM node:18-alpine
 WORKDIR /app
+
 COPY package*.json ./
-RUN npm ci --only=production
-COPY --from=builder /app/dist ./dist
+
+RUN npm install
+
+RUN npm install -g @nestjs/cli
+
+COPY . .
+
+RUN npx prisma generate
+
 EXPOSE 3000
-CMD ["node", "dist/main"]
+
+CMD ["npm", "run", "start:dev"]

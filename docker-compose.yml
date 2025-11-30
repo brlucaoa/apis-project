@@ -1,52 +1,43 @@
-version: '3.8'
+version: "3.9"
+
 services:
-
-  crud:
-    build:
-      context: ./crud
-      dockerfile: Dockerfile
-    env_file:
-      - ./crud/.env
+  api:
+    build: ./api
+    container_name: api
+    env_file: ./api/.env
     ports:
-      - "3001:3000"
-    expose:
-      - "3002"
+      - "3000:3000"
     depends_on:
-      - db
-      - rabbitmq
+      - postgres
+    networks:
+      - app-network
 
-
-  campo-update:
-    build:
-      context: ./campo-update
-      dockerfile: Dockerfile
-    env_file:
-      - ./campo-update/.env
+  publisher:
+    build: ./publisher
+    container_name: publisher
+    env_file: ./publisher/.env
     ports:
-      - "3002:3000"
-    depends_on:
-      - rabbitmq
+      - "3002:3002"
+    networks:
+      - app-network
 
-  db:
-    image: postgres:15
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
     environment:
-      POSTGRES_DB: appdb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: crud
     ports:
-      - "5432:5432"
+      - "5433:5432"
+    networks:
+      - app-network
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
 
-  # RabbitMQ Message Broker
-  rabbitmq:
-    image: rabbitmq:3-management
-    environment:
-      RABBITMQ_DEFAULT_USER: suhtprle
-      RABBITMQ_DEFAULT_PASS: j8Cp4FsjEwZM6tP229VggQZBlHjH4UvZ
-    ports:
-      - "5672:5672"
-      - "15672:15672"
+networks:
+  app-network:
 
 volumes:
-  db_data: {}
+  postgres_data:
