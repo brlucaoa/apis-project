@@ -28,7 +28,7 @@ services:
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: crud
     ports:
-      - "5433:5432"
+      - "5432:5433"
     networks:
       - app-network
     volumes:
