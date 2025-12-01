@@ -1,5 +1,6 @@
 import {Injectable, OnModuleInit, Logger} from '@nestjs/common';
 import {ClientProxy, ClientProxyFactory, Transport} from '@nestjs/microservices';
+import { ConfigService } from '@nestjs/config';
 import {updateMissaoDto} from './dto/create-publisher.dto';
 import {updateOperadorDto} from './dto/create-publisher.dto';
 import {UpdateOperadorPublisherDto} from './dto/update-publisher.dto';
@@ -11,12 +12,12 @@ export class PublisherService {
     private readonly logger = new Logger(PublisherService.name);
     private readonly client: ClientProxy;
 
-    constructor() {
+    constructor(private configService: ConfigService) {
         this.client = ClientProxyFactory.create({
             transport: Transport.RMQ,
             options: {
-                urls: ['amqps://suhtprle:j8Cp4FsjEwZM6tP229VggQZBlHjH4UvZ@jackal.rmq.cloudamqp.com/suhtprle'],
-                queue: 'campo_update',
+                urls: [this.configService.get<string>('RABBITMQ_URL')],
+                queue: this.configService.get<string>('RABBITMQ_QUEUE'),
                 queueOptions: {durable: true},
             },
         });
