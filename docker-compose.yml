@@ -1,7 +1,5 @@
-version: "3.9"
-
 services:
-  api:
+  crud:
     build: ./crud
     container_name: crud
     env_file: ./crud/.env
@@ -12,7 +10,7 @@ services:
     networks:
       - app-network
 
-  publisher:
+  campo-update:
     build: ./campo-update
     container_name: campo-updater
     env_file: ./campo-update/.env
@@ -22,7 +20,7 @@ services:
       - app-network
 
   postgres:
-    image: postgres:latest
+    image: postgres:15-alpine
     container_name: postgres
     restart: always
     environment:
